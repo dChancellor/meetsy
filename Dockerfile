@@ -2,10 +2,10 @@ FROM node:12-alpine
 
 WORKDIR /usr/src/app
 
-COPY {SERVER_FOLDER}/package.json .
+COPY package.json .
 
 RUN npm install
 
-COPY {SERVER_FOLDER} .
+COPY . .
 
 CMD ["npm", "start"]
