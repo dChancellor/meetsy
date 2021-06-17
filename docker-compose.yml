@@ -1,0 +1,13 @@
+web:
+    env_file:
+      - docker-variables.env
+  
+  services:
+      app:
+        image: {PROJECT_NAME}
+        build: .
+        restart: always
+        ports:
+          - 5000:${PORT}
+        volumes:
+          - ./:/usr/src/app:cached

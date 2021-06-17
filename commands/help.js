@@ -10,7 +10,7 @@ module.exports = {
   aliases: ['help', '?', 'test'],
   execute(message) {
     const { commands } = message.client;
-    let reply = `you can run a mashup command by typing the following: \n >>> `;
+    let reply = `you can run a mashup command by typing one of the following: \n`;
     commands
       .filter(({ type }) => type != 'utility')
       .forEach((command) => {

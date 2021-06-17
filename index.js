@@ -12,15 +12,10 @@ for (const file of commandFiles) {
   client.commands.set(command.name, command);
 }
 
-client.once('ready', () => {
-  client.user.setUsername('Mashup');
-  client.user.setActivity(`Waiting for ${prefix}`, { type: 'CUSTOM_STATUS' });
-  client.user.setStatus('online');
-});
-
 client.on('message', (message) => {
   // Ignores any message not given to the bot
   if (!message.content.startsWith(prefix) || message.author.bot) return;
+  client.user.setActivity(`Waiting for ${prefix}`, { type: 'CUSTOM_STATUS' });
   // This is any arguments to back up the base command
   const args = message.content.slice(prefix.length).trim().split(/ +/);
   // This is the base command
@@ -53,7 +48,7 @@ client.on('message', (message) => {
     command.execute(message, args);
   } catch (error) {
     console.error(error);
-    message.channel.send('HELP!...THE..BOT....IS..BROKEN. CALL...<@225761088988250112>....');
+    message.channel.send(`HELP!...THE..BOT....IS..BROKEN. CALL...${developer}....`);
   }
 });
 
