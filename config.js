@@ -1,7 +1,7 @@
 const dotenv = require('dotenv');
 dotenv.config();
 
-const prefix = '!';
+const prefix = '!mashup';
 
 const config = {
   prefix,

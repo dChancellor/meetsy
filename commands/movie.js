@@ -86,8 +86,8 @@ const getMovie = async (filter, randomizer) => {
 const parseArgs = (args) => {
   let filter = '';
   let numberOfMovies = 2;
-  args.forEach((arg) => {
-    try {
+  try {
+    args.forEach((arg) => {
       // Handles incorrect syntax
       if (!arg.includes('=')) throw `Your argument should be in the format of "x"="y" \n For example: \`number=3\``;
       //Splits parameter and input
@@ -100,10 +100,11 @@ const parseArgs = (args) => {
       }
       //Translates the parameter to the endpoint for the API
       filter += reducer(parameter, input);
-    } catch (error) {
-      return { error };
-    }
-  });
+    });
+  } catch (error) {
+    console.log(error);
+    return { error };
+  }
   if (!filter.includes('vote_average_gte=')) filter += '&vote_average_gte=7';
   return { filter, numberOfMovies };
 };
