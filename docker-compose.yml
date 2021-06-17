@@ -1,13 +1,9 @@
-web:
-    env_file:
-      - docker-variables.env
-  
   services:
       app:
-        image: {PROJECT_NAME}
+        image: mashup
         build: .
         restart: always
         ports:
-          - 5000:${PORT}
+          - 5011:5011
         volumes:
           - ./:/usr/src/app:cached
