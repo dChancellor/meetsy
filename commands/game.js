@@ -132,6 +132,7 @@ const parseArgs = (args) => {
     return { error };
   }
   if (!filter.includes('aggregated_rating')) filter += 'aggregated_rating > 80';
+  filter += 'total_rating_count > 20'
   if (filter.endsWith(' & ')) filter = filter.slice(0, filter.length - 3);
   return { filter, numberOfGames };
 };
@@ -141,11 +142,11 @@ const reducer = (parameter, input) => {
     case 'minimum-rating':
       if (input < 0) input = 0;
       if (input > 100) input = 100;
-      return `aggregated_rating > ${input}`;
+      return `total_rating > ${input}`;
     case 'maximum-rating':
       if (input < 0) input = 0;
       if (input > 100) input = 100;
-      return `aggregated_rating < ${input}`;
+      return `total_rating < ${input}`;
     case 'minimum-date':
       return `first_release_date > ${Date.parse(input) / 1000}`;
     case 'maximum-date':
