@@ -37,12 +37,19 @@ module.exports = {
       games.push(game);
     }
     // Gets covers and creates embeds for each game
-    games.forEach(async (game, index) => {
-      const { embed, error } = await createEmbed(game, message);
+    for (let i = 0; i < games.length; i++) {
+      const { embed, error } = await createEmbed(games[i]);
       if (error) return errorHandler(message, error);
       message.channel.send(embed);
-      if (index < games.length - 1) message.channel.send('>>> ***vs***');
-    });
+      if(!i%2) message.channel.send('>>> ***vs***');
+    }
+    // games.forEach(async (game, index) => {
+    //   const { embed, error } = await createEmbed(game);
+    //   if (error) return errorHandler(message, error);
+    //   console.log(embed);
+    //   message.channel.send(embed);
+      // if (index < games.length - 1) message.channel.send('>>> ***vs***');
+    // });
   },
 };
 
@@ -82,7 +89,6 @@ const getCover = async (coverID) => {
 };
 
 const getGame = async (filter, randomizer) => {
-  console.log(filter);
   let game = await fetch(`${gameAPIURL}/games`, {
     method: 'post',
     body: `fields name, cover, summary, url, first_release_date; \n limit 1; \n offset ${randomizer}; \n ${filter};`,
@@ -132,7 +138,7 @@ const parseArgs = (args) => {
     return { error };
   }
   if (!filter.includes('aggregated_rating')) filter += 'aggregated_rating > 80';
-  filter += 'total_rating_count > 20'
+  filter += ' & total_rating_count > 20';
   if (filter.endsWith(' & ')) filter = filter.slice(0, filter.length - 3);
   return { filter, numberOfGames };
 };
