@@ -10,10 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "deepai": "^1.0.17",
     "discord.js": "^12.5.3",
     "dotenv": "^10.0.0",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
     "nodemon": "^2.0.7"
   }
 }

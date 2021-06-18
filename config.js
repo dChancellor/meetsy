@@ -14,7 +14,6 @@ const config = {
   movieAPIURL: process.env.MOVIE_API_URL,
   personAPIURL: process.env.PERSON_API_URL,
   developer: process.env.DEVELOPER_DISCORD_ID,
-  deepaiAPIKey: process.env.DEEPAI_API_KEY,
 };
 
 module.exports = config;

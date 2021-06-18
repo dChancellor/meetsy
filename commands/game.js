@@ -8,7 +8,6 @@ const {
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
 const errorHandler = require("../errorHandler");
-const runDeepAI = require("../ai");
 
 let numberOfAttempts = 0;
 
