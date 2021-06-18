@@ -1,18 +1,20 @@
-const dotenv = require('dotenv');
+const dotenv = require("dotenv");
 dotenv.config();
 
-const prefix = '!mashup';
+const prefix = "!mashup";
 
 const config = {
   prefix,
   unknownCommand: `I am having trouble understanding your command. Run \`${prefix} help\` if you need guidance for my activities.`,
   token: process.env.BOT_TOKEN,
-  gameAPIURL: 'https://api.igdb.com/v4',
+  gameAPIURL: "https://api.igdb.com/v4",
   gameAPIAuthToken: process.env.GAME_API_AUTHORIZATION_TOKEN,
   gameAPIClientID: process.env.GAME_API_CLIENT_ID,
   movieAPIAuthToken: process.env.MOVIE_READ_ACCESS_TOKEN,
   movieAPIURL: process.env.MOVIE_API_URL,
+  personAPIURL: process.env.PERSON_API_URL,
   developer: process.env.DEVELOPER_DISCORD_ID,
+  deepaiAPIKey: process.env.DEEPAI_API_KEY,
 };
 
 module.exports = config;
