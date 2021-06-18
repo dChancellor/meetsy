@@ -3,7 +3,7 @@ const {
   gameAPIAuthToken,
   gameAPIClientID,
   gameAPIURL,
-  developer
+  developer,
 } = require("../config");
 const Discord = require("discord.js");
 const fetch = require("node-fetch");
@@ -17,7 +17,7 @@ module.exports = {
   properName: "Game",
   type: "game",
   description:
-    "The `game` command mashes up multiple games for a fun creative thought prompt. \n The default values are 2 games with over an 80 rating.",
+    "The `game` command mashes up multiple games for a fun creative thought prompt. \n The default values are 2 games with over an 80 rating. \n \n Separate arguments with a comma.",
   args: {
     required: false,
     number: 0,
@@ -29,7 +29,7 @@ module.exports = {
       "maximum-date(1987-07-02)",
     ],
   },
-  usage: `For example: \`${prefix} game number=2 minimum-rating=80\``,
+  usage: `For example: \`${prefix} game number=2, minimum-rating=80\``,
   aliases: ["game", "games", "video games"],
   async execute(message, args) {
     let games = [];
