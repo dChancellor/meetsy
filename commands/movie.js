@@ -27,7 +27,7 @@ module.exports = {
       "year(2020)",
       "minimum-date(1987-07-02)",
       "maximum-date(1987-07-02)",
-      "with-person(1461) - this is the TMDB person ID number",
+      "with-person(Keanu Reeves)",
     ],
   },
   usage: `For example: \`${prefix} movie with-person=Keanu Reeves, number=2, minimum-rating=7\``,
