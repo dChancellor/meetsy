@@ -45,8 +45,6 @@ module.exports = {
         Math.ceil(Math.random() * 5000)
       );
       if (error) return errorHandler(message, error);
-      // let ai = await runDeepAI(game.summary);
-      // message.channel.send(ai);
       games.push(game);
     }
     // Gets covers and creates embeds for each game
